@@ -1,0 +1,34 @@
+#app{
+    width: 100%;
+}
+
+#marg{
+    margin-top: 2em;
+    margin-left: .8em;
+    padding-bottom: 2em;;
+}
+
+.space{
+    /* padding: .4em; */
+    padding: 1.5em;
+    padding-right: .6em;
+    padding-bottom: .75em;
+}
+
+
+button #search{
+    font-size: 1.2em;
+    margin-top: 1.3em;
+    margin-left: 1.1em;
+}
+
+#results{
+    margin-top: 2em;
+    padding-bottom: 2em;
+}
+    
+#parent{
+    justify-content: center; /* horizontal */
+    margin: auto;     
+    width: 100%;   
+}
