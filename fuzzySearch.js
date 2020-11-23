@@ -1,6 +1,7 @@
 
-var savedResult;
+var savedResult; var keepGoing = true;
 function fuzz(mySearch){
+
     const options = {
         includeScore: true,
   
@@ -9,10 +10,32 @@ function fuzz(mySearch){
     
     const fuse = new Fuse(BIGArray, options);
     
-    const result = fuse.search(mySearch);
+    //========================================
 
-    savedResult = result;
-    console.log('result', savedResult);
+    compareSearchTerms(mySearch);
+
+    // if(keepGoing == true){
+        
+        
+        const result = fuse.search(mySearch);
+        
+        savedResult = result;
+        console.log('result', savedResult);
+        
+        if(savedResult!=""){
+            makeCardFromResult();
+        }else{
+            alert('No such results Found!');
+        }
+        
+        savedResult=""; 
+        
+        
+    // }else{
+    //     console.log('Special Search');
+    // }
+    //========================================
+    
     
 }
 
@@ -33,3 +56,77 @@ function fuzz(mySearch){
 //       "date": "2020-11-23T01:12:50.525Z"
 //     }
 //   ]
+
+var flop = false;
+function compareSearchTerms(searchSpecial){
+    if(searchSpecial=="create"){
+        console.log('special case', );
+                // create();
+
+        // var create = new InnerMe();   
+        // create.inner('<div id="create">'+'<div>Name?</div><input id="nameMe"></input>'+'<div><div>Tags?</div><input id="tagsMe">'+'</div>'+'</div><button id="hide">Hide</button><button id="makeNewTask">Create</button>', "#marg", true);
+
+
+        
+            document.getElementById('create').className= 'show';
+            document.getElementById('hide').className= 'show';
+            document.getElementById('makeNewTask').className= 'show';
+            
+          
+
+        document.getElementById('hide').addEventListener('click', ()=>{
+            document.getElementById('create').className = "hide";
+            document.getElementById('hide').className = "hide";
+            document.getElementById('makeNewTask').className = "hide";
+            document.getElementById('hide').addEventListener('click', ()=>{
+                fuzz(document.getElementById('search').value);
+            });
+        });
+
+
+        
+
+        document.getElementById('makeNewTask').addEventListener('click', ()=>{
+            var nameMe = document.getElementById('nameMe').value;
+            var tagsMe = document.getElementById('tagsMe').value;
+            console.log(nameMe);
+            console.log(tagsMe);
+            
+            var tasks = new TaskClass(nameMe, tagsMe);
+            tasks.makeObj();
+            
+            console.log('BIGArray', BIGArray);
+            
+        });
+            
+            
+            
+            //========================================
+            
+            //========================================
+            // document.getElementById('searchMe').removeEventListener('click', ()=>{});
+
+            // document.getElementById('searchMe').addEventListener('click', (event)=>{
+            //     event.preventDefault();
+            //     console.log('value', document.getElementById('search').value);
+            //     console.log('Separate but together, did I fire?', );
+            //     fuzz(document.getElementById('search').value);
+            // });
+
+
+
+        
+
+
+
+        // keepGoing=true;
+    }
+    // else{
+    //     keepGoing=true;
+    // }
+}
+
+// function change(){
+//     document.getElementById('create').classList.toggle("hide");
+
+// }

@@ -21,9 +21,16 @@ class TaskClass{
         return this.date;
     }
 
+    makeRandom(min, max){
+        
+        return Math.floor(Math.random() * (max - min)) + min + 1;
+        
+    }
+
     makeObj(){
         var dateMe = new Date();
-        var tmpObj = {name: this.returnName(), tags: this.returnTags(), date:dateMe};
+        var UID = this.makeRandom(1, 100);
+        var tmpObj = {name: this.returnName(), tags: this.returnTags(), date:dateMe, UID:UID};
 
         makeBIGArray(tmpObj);
     }
@@ -42,3 +49,6 @@ function state(){
     //fuzz(mySearch)
 
 }
+
+
+//========================================
