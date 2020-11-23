@@ -14,7 +14,7 @@ function fuzz(mySearch){
 
     compareSearchTerms(mySearch);
 
-    // if(keepGoing == true){
+    if(keepGoing == true){
         
         
         const result = fuse.search(mySearch);
@@ -31,7 +31,7 @@ function fuzz(mySearch){
         savedResult=""; 
         
         
-    // }else{
+    }
     //     console.log('Special Search');
     // }
     //========================================
@@ -59,7 +59,7 @@ function fuzz(mySearch){
 
 var flop = false;
 function compareSearchTerms(searchSpecial){
-    if(searchSpecial=="create"){
+    if(searchSpecial.toLowerCase().trim()=="create"){
         console.log('special case', );
                 // create();
 
@@ -121,12 +121,11 @@ function compareSearchTerms(searchSpecial){
 
         // keepGoing=true;
     }
-    // else{
-    //     keepGoing=true;
-    // }
+
+    if(searchSpecial=='help'){
+        createResults("I am here to help");
+    }
+
+   
 }
 
-// function change(){
-//     document.getElementById('create').classList.toggle("hide");
-
-// }
